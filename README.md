@@ -29,3 +29,10 @@ Configura estos secrets en **Settings > Secrets and variables > Actions**:
 
 El workflow no envía resultados de pull requests a DefectDojo; solo los analiza
 en GitHub para evitar importar resultados incompletos o duplicados.
+
+## Fixture vulnerable para la demo
+
+El archivo `security-lab/vulnerable-dom-xss.js` contiene intencionadamente un
+ejemplo de DOM XSS para generar un finding de prueba en CodeQL y DefectDojo.
+No se carga desde `index.html` y no forma parte del funcionamiento normal de
+la aplicación. Elimínalo después de validar la integración.
