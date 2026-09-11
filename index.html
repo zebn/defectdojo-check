@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Comprobador local de capacidades del navegador para pruebas sin Docker.">
+  <title>DefectDojo Check</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">D</div>
+      <div>
+        <p class="eyebrow">LOCAL VERIFICATION LAB</p>
+        <h1>DefectDojo Check</h1>
+      </div>
+      <span class="mode-badge">Sin Docker</span>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow accent">READY TO INSPECT</p>
+        <h2 id="hero-title">Comprueba tu entorno<br><em>en segundos.</em></h2>
+        <p class="hero-copy">Una pequeña estación de pruebas para confirmar que tu navegador y tu sesión local funcionan antes de conectar una herramienta de seguridad.</p>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit-core">OK</div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Controles de comprobación">
+      <div>
+        <span class="section-label">STATUS</span>
+        <strong id="overall-status">Pendiente de comprobación</strong>
+      </div>
+      <button id="run-checks" class="primary-button" type="button">Ejecutar comprobación <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section class="checks-grid" aria-label="Resultados de comprobación">
+      <article class="check-card" data-check="browser">
+        <div class="card-icon">01</div>
+        <div><span class="section-label">BROWSER</span><h3>Navegador activo</h3><p id="browser-detail">Esperando ejecución</p></div>
+        <span class="status-dot" aria-label="Pendiente"></span>
+      </article>
+      <article class="check-card" data-check="javascript">
+        <div class="card-icon">02</div>
+        <div><span class="section-label">RUNTIME</span><h3>JavaScript</h3><p id="javascript-detail">Esperando ejecución</p></div>
+        <span class="status-dot" aria-label="Pendiente"></span>
+      </article>
+      <article class="check-card" data-check="storage">
+        <div class="card-icon">03</div>
+        <div><span class="section-label">PERSISTENCE</span><h3>Almacenamiento local</h3><p id="storage-detail">Esperando ejecución</p></div>
+        <span class="status-dot" aria-label="Pendiente"></span>
+      </article>
+    </section>
+
+    <section class="findings-section" aria-labelledby="findings-title">
+      <div class="section-heading">
+        <div><span class="section-label">TEST DATA</span><h2 id="findings-title">Hallazgos de prueba</h2></div>
+        <span id="finding-count" class="count-badge">0</span>
+      </div>
+      <form id="finding-form" class="finding-form">
+        <label for="finding-name">Nombre del hallazgo</label>
+        <div class="form-row">
+          <input id="finding-name" name="finding" type="text" maxlength="80" placeholder="Ej. Cabecera de seguridad ausente" required>
+          <button class="secondary-button" type="submit">Añadir hallazgo <span aria-hidden="true">+</span></button>
+        </div>
+      </form>
+      <ul id="finding-list" class="finding-list" aria-live="polite">
+        <li class="empty-state">Todavía no hay hallazgos de prueba.</li>
+      </ul>
+    </section>
+
+    <footer><span>DEFECTDOJO CHECK / 2026</span><span id="clock">--:--:--</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
